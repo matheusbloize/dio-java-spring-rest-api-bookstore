@@ -10,6 +10,40 @@ API creation proposed as a [DIO](https://www.dio.me/) challenge for cloud deploy
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [Railway](https://railway.com/)
 
+### Class Diagram (Mermaid)
+```mermaid
+classDiagram
+    class Book {
+        -UUID id
+        -String title
+        -Publisher publisher
+        -Set&lt;Author&gt; authors
+        -Review review
+    }
+
+    class Author {
+        -UUID id
+        -String name
+        -Set&lt;Book&gt; books
+    }
+
+    class Publisher {
+        -UUID id
+        -String name
+        -Set&lt;Book&gt; books
+    }
+
+    class Review {
+        UUID id
+        String comment
+        Book book
+    }
+
+    Book "*" -- "*" Author
+    Book "1" -- "*" Publisher
+    Book "1" *-- "1" Review
+```
+
 ### Links
 API: 
 - Books: [dio-java-spring-rest-api-booksto-production.up.railway.app/books](https://dio-java-spring-rest-api-booksto-production.up.railway.app/books)
