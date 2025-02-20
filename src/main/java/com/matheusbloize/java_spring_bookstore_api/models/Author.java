@@ -32,6 +32,10 @@ public class Author implements Serializable {
     @ManyToMany(mappedBy = "authors", fetch = FetchType.LAZY)
     private Set<Book> books = new HashSet<>();
 
+    public void addBook(Book book) {
+        this.books.add(book);
+    }
+
     public UUID getId() {
         return id;
     }
